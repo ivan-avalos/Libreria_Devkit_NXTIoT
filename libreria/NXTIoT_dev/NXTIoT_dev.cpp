@@ -3,7 +3,7 @@
 
 NXTIoT_dev::NXTIoT_dev()
 {
-	Serial.begin(9600);
+	Serial1.begin(9600);
 	pinMode(enable_module, OUTPUT);   //enable modulo wisol
 	bufer="AT";
 }
@@ -21,10 +21,10 @@ void NXTIoT_dev::sendmessage()
   digitalWrite(enable_module, HIGH);
   delay(1000);
   //Reset del canal para asegurar que manda en la frecuencia correcta
-  Serial.print("AT$RC\n"); 
+  Serial1.print("AT$RC\n"); 
   //************************
   //Enviamos la informacion por sigfox
-  Serial.print(bufer);
+  Serial1.print(bufer);
   delay(3000);
   //deshabilitamos el modulo Sigfox
   digitalWrite(enable_module, LOW);
